@@ -16,14 +16,18 @@ import com.example.pizzaorderapp.R
 @Composable
 fun AppBar(){
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
     ) {
         Image(
             painter = painterResource(id = R.drawable.baseline_arrow_back_24),
             contentDescription = "back"
         )
-        Text(text = "Pizza")
+        PizzaTitleText(
+            text = "Pizza"
+            )
         Image(painter = painterResource(
             id = R.drawable.baseline_favorite_24),
             contentDescription = "favourite"

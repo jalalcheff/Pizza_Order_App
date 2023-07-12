@@ -22,9 +22,7 @@ fun PizzaPlate(){
         Image(
             painter = painterResource(id = R.drawable.plate),
             contentDescription = "plate",
-            modifier = Modifier
-                .size(120.dp)
-                .fillMaxWidth(),
+            modifier = Modifier.size(240.dp).fillMaxWidth(),
             alignment = Alignment.Center
         )
     }

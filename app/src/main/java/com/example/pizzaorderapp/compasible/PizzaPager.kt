@@ -27,7 +27,7 @@ fun PizzaPager(){
             Image(
                 painter = painterResource(id = R.drawable.bread_1),
                 contentDescription = "bread",
-                modifier = Modifier.size(96.dp)
+                modifier = Modifier.size(192.dp)
             )
         }
     }
