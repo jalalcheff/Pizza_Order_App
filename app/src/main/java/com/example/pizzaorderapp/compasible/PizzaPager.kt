@@ -13,21 +13,32 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pizzaorderapp.R
+import com.example.pizzaorderapp.util.ListOfBreads
+import com.example.pizzaorderapp.util.PizzaSize
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PizzaPager(){
+fun PizzaPager(
+    breads: List<Int>,
+    pizzaSize: PizzaSize
+){
     Box(
         contentAlignment = Alignment.Center
     ) {
         HorizontalPager(
-            pageCount = 5,
+            pageCount = breads.size,
             modifier = Modifier.fillMaxWidth()
         ) {
             Image(
-                painter = painterResource(id = R.drawable.bread_1),
+                painter = painterResource(id = breads[it]),
                 contentDescription = "bread",
-                modifier = Modifier.size(192.dp)
+                modifier = Modifier.size(
+                    size = when(pizzaSize){
+                        PizzaSize.S -> 192.dp
+                        PizzaSize.M -> 200.dp
+                        PizzaSize.L -> 208.dp
+                    },
+                )
             )
         }
     }
@@ -37,5 +48,11 @@ fun PizzaPager(){
 @Composable
 @Preview(widthDp = 360 , heightDp = 800)
 fun PreviewPizzaPager(){
-    PizzaPager()
+    PizzaPager(breads = listOf(
+        R.drawable.bread_1,
+        R.drawable.bread_2,
+        R.drawable.bread_3,
+        R.drawable.bread_4,
+        R.drawable.bread_5,
+    ),PizzaSize.S)
 }

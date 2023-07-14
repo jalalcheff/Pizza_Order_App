@@ -10,15 +10,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.pizzaorderapp.util.PizzaSize
 
 @Composable
 fun SizeSelector(
     buttonText: String,
-    isSelected: Boolean
-
+    isSelected: Boolean,
+    onClickSize:(String)->Unit
 ) {
-Button(
-    onClick = { /*TODO*/ },
+    Button(
+    onClick = { onClickSize(buttonText) },
     modifier = Modifier.size(56.dp),
     colors = ButtonDefaults.buttonColors(Color.White),
     elevation = ButtonDefaults.buttonElevation(
@@ -29,11 +30,11 @@ Button(
         text = buttonText,
         color = Color.Black
         )
-}
+    }
 }
 
 @Composable
 @Preview(widthDp = 360, heightDp = 800)
 fun PreviewSizeSelector() {
-    SizeSelector("S",false)
+    SizeSelector("S",false,{})
 }
