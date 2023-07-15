@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.example.pizzaorderapp.R
 import com.example.pizzaorderapp.util.IngredientTypes
 import com.example.pizzaorderapp.util.ListOfBreads
+import com.example.pizzaorderapp.util.ListOfIngredients
 import com.example.pizzaorderapp.util.PizzaSize
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -27,6 +28,7 @@ fun PizzaPager(
     pizzaSize: PizzaSize,
     ingredientTypes: IngredientTypes
 ){
+    val ingredients = ListOfIngredients
     Box(
         contentAlignment = Alignment.Center
     ) {
@@ -55,11 +57,11 @@ fun PizzaPager(
                         .clip(CircleShape)
                 ) {
                         when(true){
-                            ingredientTypes.basil -> BoxOfIngredients(ingredients = ListOfBreads.breads)
-                            ingredientTypes.onion -> BoxOfIngredients(ingredients = ListOfBreads.breads)
-                            ingredientTypes.broccoli -> BoxOfIngredients(ingredients = ListOfBreads.breads)
-                            ingredientTypes.mushroom -> BoxOfIngredients(ingredients = ListOfBreads.breads)
-                            ingredientTypes.sausage -> BoxOfIngredients(ingredients = ListOfBreads.breads)
+                            ingredientTypes.basil -> BoxOfIngredients(ingredients = ingredients.basil)
+                            ingredientTypes.onion -> BoxOfIngredients(ingredients = ingredients.onion)
+                            ingredientTypes.broccoli -> BoxOfIngredients(ingredients = ingredients.broccoli)
+                            ingredientTypes.mushroom -> BoxOfIngredients(ingredients = ingredients.mushroom)
+                            ingredientTypes.sausage -> BoxOfIngredients(ingredients = ingredients.sausage)
                             else -> false
                         }
 
