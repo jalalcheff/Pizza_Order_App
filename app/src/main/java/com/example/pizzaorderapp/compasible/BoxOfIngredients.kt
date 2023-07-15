@@ -11,7 +11,6 @@ import androidx.compose.ui.draw.clip
 fun BoxOfIngredients(ingredients: List<Int>){
     Box(
         modifier = Modifier
-            .clip(CircleShape)
             .fillMaxSize()
             .clip(CircleShape)
     ) { RandomImages(images = ingredients) }

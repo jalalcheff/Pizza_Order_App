@@ -71,7 +71,7 @@ Column(
     VerticalSpacer(space = 24)
     AppBar()
     VerticalSpacer(space = 24)
-    PizzaPagerOnThePlate(breads, state.pizzaSize)
+    PizzaPagerOnThePlate(breads, state.pizzaSize, ingredientTypes)
     VerticalSpacer(space = 24)
     PizzaTitleText(text = "$70", Modifier.fillMaxWidth())
     VerticalSpacer(space = 24)
