@@ -45,7 +45,7 @@ fun PizzaOrderScreen(viewModel: PizzaOrderViewModel = hiltViewModel()){
             }},
         breads = breads,
         onClickIngredient = {
-
+            viewModel.updateIngredient(it)
         }
     )
 }

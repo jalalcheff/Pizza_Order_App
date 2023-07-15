@@ -2,6 +2,7 @@ package com.example.pizzaorderapp.compasible
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -17,7 +18,8 @@ import com.example.pizzaorderapp.util.IngredientTypes
 fun ImageRecycler(
     imageUrl: Int,
     ingredientTypes: IngredientTypes,
-    ingredientIndex: Int
+    ingredientIndex: Int,
+    onClickIngredient:(Int)->Unit
 ){
     val selectedIngredient = when(ingredientIndex){
         0-> ingredientTypes.broccoli
@@ -35,6 +37,8 @@ fun ImageRecycler(
             .clip(CircleShape)
             .background(
                 color = if (selectedIngredient) LightGreen else Color.White
-            )
+            ).clickable {
+                onClickIngredient(ingredientIndex)
+            }
     )
 }

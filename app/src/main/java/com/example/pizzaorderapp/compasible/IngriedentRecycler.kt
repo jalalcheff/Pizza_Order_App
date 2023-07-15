@@ -26,7 +26,8 @@ fun IngredientRecycler(onClickIngredient: (Int)->Unit, ingredientTypes: Ingredie
             ImageRecycler(
                 imageUrl = it,
                 ingredientIndex = list.indexOf(it),
-                ingredientTypes = ingredientTypes
+                ingredientTypes = ingredientTypes,
+                onClickIngredient = onClickIngredient
             )
         }
     }
