@@ -24,4 +24,19 @@ class PizzaOrderViewModel: ViewModel() {
     fun updateSelectedSize(size: PizzaSize){
         _state.update { it.copy(pizzaSize = size) }
     }
+    fun updateBasilIngredient(selectedIngredient: PizzaOrderUiState.BasilIngredients){
+        _state.update { it.copy(basilIngredient = selectedIngredient) }
+    }
+    fun updateBroccoliIngredient(selectedIngredient: PizzaOrderUiState.BroccoliIngredients){
+        _state.update { it.copy(broccoliIngredient = selectedIngredient) }
+    }
+    fun updateMushroomIngredient(selectedIngredient: PizzaOrderUiState.MushroomIngredients){
+        _state.update { it.copy(mushroomIngredient = selectedIngredient) }
+    }
+    fun updateOnionIngredient(selectedIngredient: PizzaOrderUiState.OnionIngredients){
+        _state.update { it.copy(onionIngredient = selectedIngredient) }
+    }
+    fun updateIngredient(selectedIngredient: List<Int>){
+        _state.update { it.copy(ingredients = selectedIngredient) }
+    }
 }

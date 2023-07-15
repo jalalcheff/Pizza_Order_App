@@ -8,9 +8,43 @@ data class PizzaOrderUiState(
     val breadImage: Int = R.drawable.bread_1,
     val pizzaPrice: Int = 70,
     val pizzaSize: PizzaSize = PizzaSize.S,
-    val ingredient: List<Int>? = emptyList(),
-)
-fun PizzaModel.toUiState(): PizzaOrderUiState{
+    val basilIngredient: BasilIngredients? = BasilIngredients(emptyList(),false),
+    val broccoliIngredient: BroccoliIngredients? = BroccoliIngredients(emptyList(),false),
+    val mushroomIngredient: MushroomIngredients? = MushroomIngredients(emptyList(),false),
+    val onionIngredient: OnionIngredients? = OnionIngredients(emptyList(),false),
+    val sausageIngredient: SausageIngredients? = SausageIngredients(emptyList(),false),
+    val ingredients: List<Boolean> = emptyList()
+    ){
+    data class BasilIngredients(
+        val ingredientImage: List<Int>,
+        val isSelected: Boolean
+    )
+    data class BroccoliIngredients(
+        val ingredientImage: List<Int>,
+        val isSelected: Boolean
+    )
+    data class MushroomIngredients(
+        val ingredientImage: List<Int>,
+        val isSelected: Boolean
+    )
+    data class OnionIngredients(
+        val ingredientImage: List<Int>,
+        val isSelected: Boolean
+    )
+    data class SausageIngredients(
+        val ingredientImage: List<Int>,
+        val isSelected: Boolean
+    )
+    data class Ingredient(
+        val basil: Int,
+        val broccoli: Int,
+        val mushroom: Int,
+        val onion: Int,
+        val sausage: Int
+    )
+}
+
+fun PizzaModel.toUiState(): PizzaOrderUiState {
     return PizzaOrderUiState(
         isFav = isFav,
         pizzaPrice = pizzaPrice,

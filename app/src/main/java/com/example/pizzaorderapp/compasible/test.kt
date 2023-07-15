@@ -23,8 +23,6 @@ import kotlin.random.Random
 
 @Composable
 fun TryDistrbute() {
-    val list = mutableListOf<Unit>()
-    val position by remember { mutableStateOf(generateRandomPosition()) }
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -53,13 +51,13 @@ fun TryDistrbute() {
 fun PreviewDistrbute(){
     TryDistrbute()
 }
-data class Position(val x: Int, val y: Int)
+data class Position1(val x: Int, val y: Int)
 
-fun generateRandomPosition(): Position {
+fun generateRandomPosition1(): Position1 {
     // Logic to generate random x and y coordinates within the box boundaries
     // Implement your own logic based on your specific requirements
 
     val randomX = Random.nextInt(0,50)
     val randomY = Random.nextInt(0, 50)
-    return Position(randomX, randomY)
+    return Position1(randomX, randomY)
 }
