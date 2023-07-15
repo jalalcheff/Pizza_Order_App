@@ -56,14 +56,24 @@ fun PizzaPager(
                         .fillMaxSize()
                         .clip(CircleShape)
                 ) {
-                        when(true){
+                    if ( ingredientTypes.basil)
+                        BoxOfIngredients(ingredients = ingredients.basil)
+                    if (ingredientTypes.onion)
+                        BoxOfIngredients(ingredients = ingredients.onion)
+                    if ( ingredientTypes.broccoli)
+                        BoxOfIngredients(ingredients = ingredients.broccoli)
+                    if (ingredientTypes.mushroom)
+                        BoxOfIngredients(ingredients = ingredients.mushroom)
+                    if (ingredientTypes.sausage)
+                        BoxOfIngredients(ingredients = ingredients.sausage)
+                    /*    when(true){
                             ingredientTypes.basil -> BoxOfIngredients(ingredients = ingredients.basil)
                             ingredientTypes.onion -> BoxOfIngredients(ingredients = ingredients.onion)
                             ingredientTypes.broccoli -> BoxOfIngredients(ingredients = ingredients.broccoli)
                             ingredientTypes.mushroom -> BoxOfIngredients(ingredients = ingredients.mushroom)
                             ingredientTypes.sausage -> BoxOfIngredients(ingredients = ingredients.sausage)
                             else -> false
-                        }
+                        }*/
 
                 }
 
