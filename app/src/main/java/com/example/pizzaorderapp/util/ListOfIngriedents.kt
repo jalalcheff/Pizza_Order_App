@@ -4,7 +4,7 @@ import com.example.pizzaorderapp.PizzaOrderUiState
 import com.example.pizzaorderapp.R
 
 object ListOfIngredients {
-    val basil = PizzaOrderUiState.Ingredients(
+    val basil = PizzaOrderUiState.BasilIngredients(
         listOf(
             R.drawable.basil1,
             R.drawable.basil2,
@@ -19,7 +19,7 @@ object ListOfIngredients {
         ),
         false
     )
-    val broccoli = PizzaOrderUiState.Ingredients(
+    val broccoli = PizzaOrderUiState.BroccoliIngredients(
         listOf(
         R.drawable.broccoli1,
         R.drawable.broccoli2,
@@ -34,7 +34,7 @@ object ListOfIngredients {
     ),
         false
     )
-    val mushroom = PizzaOrderUiState.Ingredients(
+    val mushroom = PizzaOrderUiState.MushroomIngredients(
         listOf(
         R.drawable.mushroom1,
         R.drawable.mushroom2,
@@ -49,7 +49,7 @@ object ListOfIngredients {
     ),
         false
     )
-    val onion = PizzaOrderUiState.Ingredients(
+    val onion = PizzaOrderUiState.OnionIngredients(
         listOf(
         R.drawable.onion1,
         R.drawable.onion2,
@@ -64,7 +64,7 @@ object ListOfIngredients {
     ),
         false
     )
-    val sausage = PizzaOrderUiState.Ingredients(
+    val sausage = PizzaOrderUiState.SausageIngredients(
         listOf(
         R.drawable.sausage1,
         R.drawable.sausage2,

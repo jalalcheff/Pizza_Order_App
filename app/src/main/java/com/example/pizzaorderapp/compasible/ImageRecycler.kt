@@ -17,8 +17,9 @@ import com.example.pizzaorderapp.util.Ingredients
 @Composable
 fun ImageRecycler(
     imageUrl: Int,
-    ingredient: Boolean,
-    onClickIngredient:(Boolean,Int) -> Unit
+    ingredientIndex: Int,
+    ingredients: List<Boolean>,
+    onClickIngredient:(Int) -> Unit
 ){
     Image(
         painter = painterResource(id = imageUrl),
@@ -27,8 +28,8 @@ fun ImageRecycler(
             .size(56.dp)
             .clip(CircleShape)
             .background(
-                color = if (ingredient) LightGreen else Color.White
+                color = if (ingredients[ingredientIndex]) LightGreen else Color.White
             )
-            .clickable { onClickIngredient(ingredient,2) }
+            .clickable { onClickIngredient(ingredientIndex) }
     )
 }

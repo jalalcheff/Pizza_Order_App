@@ -32,7 +32,6 @@ import kotlin.random.Random
 fun PizzaPager(
     breads: List<Int>,
     pizzaSize: PizzaSize,
-    ingredients: List<PizzaOrderUiState.Ingredients>
 ) {
     Box(
         contentAlignment = Alignment.Center
@@ -90,7 +89,6 @@ fun PreviewPizzaPager() {
             R.drawable.bread_4,
             R.drawable.bread_5,
         ), PizzaSize.S,
-        emptyList()
     )
 }
 

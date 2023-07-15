@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import com.example.pizzaorderapp.R
 
 @Composable
-fun IngredientRecycler(onClickIngredient:(Boolean, Int)->Unit, ingredients: List<Boolean>) {
+fun IngredientRecycler(onClickIngredient:(Int)->Unit, ingredients: List<Boolean>) {
     val selected = true
     val list = listOf(
         R.drawable.ing1,
@@ -22,7 +22,12 @@ fun IngredientRecycler(onClickIngredient:(Boolean, Int)->Unit, ingredients: List
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(list) {
-            ImageRecycler(imageUrl = it, ingredient = ingredients[it], onClickIngredient = onClickIngredient)
+            ImageRecycler(
+                imageUrl = it,
+                ingredientIndex = list.indexOf(it),
+                onClickIngredient = onClickIngredient,
+                ingredients = ingredients
+            )
         }
     }
 }

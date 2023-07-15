@@ -13,7 +13,12 @@ data class PizzaOrderUiState(
     val mushroomIngredient: MushroomIngredients? = MushroomIngredients(emptyList(),false),
     val onionIngredient: OnionIngredients? = OnionIngredients(emptyList(),false),
     val sausageIngredient: SausageIngredients? = SausageIngredients(emptyList(),false),
-    val ingredients: List<Boolean> = emptyList()
+    val ingredients: List<Boolean> = emptyList(),
+    val onion: Boolean = false,
+    val basil: Boolean = false,
+    val mushroom: Boolean = false,
+    val sausage: Boolean = false,
+    val broccoli: Boolean = false
     ){
     data class BasilIngredients(
         val ingredientImage: List<Int>,

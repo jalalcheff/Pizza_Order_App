@@ -36,7 +36,15 @@ class PizzaOrderViewModel: ViewModel() {
     fun updateOnionIngredient(selectedIngredient: PizzaOrderUiState.OnionIngredients){
         _state.update { it.copy(onionIngredient = selectedIngredient) }
     }
-    fun updateIngredient(selectedIngredient: List<Int>){
-        _state.update { it.copy(ingredients = selectedIngredient) }
+    fun updateIngredient(selectedIngredientIndex: Int){
+        when(selectedIngredientIndex)
+        {
+            0->  _state.update { it.copy(broccoli = !it.broccoli) }
+            1->  _state.update { it.copy(mushroom = !it.mushroom) }
+            2->  _state.update { it.copy(onion = !it.onion) }
+            3->  _state.update { it.copy(sausage = !it.sausage) }
+            4->  _state.update { it.copy(basil = !it.basil) }
+        }
+
     }
 }

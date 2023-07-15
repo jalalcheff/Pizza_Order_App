@@ -7,5 +7,9 @@ data class PizzaModel(
     val breadImage: Int ,
     val pizzaPrice: Int ,
     val pizzaSize: PizzaSize,
-    val ingredient: PizzaOrderUiState.Ingredients,
+    val onionIngredients: PizzaOrderUiState.OnionIngredients ,
+    val mushroomIngredients: PizzaOrderUiState.MushroomIngredients,
+    val sausageIngredients: PizzaOrderUiState.SausageIngredients,
+    val basilIngredients: PizzaOrderUiState.BasilIngredients,
+    val broccoliIngredients: PizzaOrderUiState.BroccoliIngredients
 )

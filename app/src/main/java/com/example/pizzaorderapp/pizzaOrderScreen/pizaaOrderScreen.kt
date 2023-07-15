@@ -39,22 +39,16 @@ fun PizzaOrderScreen(viewModel: PizzaOrderViewModel = hiltViewModel()) {
         state = state,
         onClick = {
             when (it) {
-                Constants.S -> {
-                    viewModel.updateSelectedSize(PizzaSize.S)
-                }
+                Constants.S -> { viewModel.updateSelectedSize(PizzaSize.S) }
 
-                Constants.M -> {
-                    viewModel.updateSelectedSize(PizzaSize.M)
-                }
+                Constants.M -> { viewModel.updateSelectedSize(PizzaSize.M) }
 
-                Constants.L -> {
-                    viewModel.updateSelectedSize(PizzaSize.L)
-                }
+                Constants.L -> { viewModel.updateSelectedSize(PizzaSize.L) }
             }
         },
         breads = breads,
         onClickIngredient = {
-            viewModel.state
+            viewModel.updateIngredient(it)
         }
     )
 }
@@ -64,7 +58,7 @@ fun PizzaOrderScreenContent(
     state: PizzaOrderUiState,
     onClick: (String) -> Unit,
     breads: List<Int>,
-    onClickIngredient: (Boolean) -> Unit,
+    onClickIngredient: (Int) -> Unit,
 
 ) {
     Column(
