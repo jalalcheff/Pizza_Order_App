@@ -9,6 +9,11 @@ data class PizzaOrderUiState(
     val pizzaPrice: Int = 70,
     val pizzaSize: PizzaSize = PizzaSize.S,
     val ingredient: List<Int>? = emptyList(),
+    val onion: Boolean = false,
+    val sausage: Boolean = false,
+    val mushroom: Boolean = false,
+    val broccoli: Boolean = false,
+    val basil: Boolean = false
 )
 fun PizzaModel.toUiState(): PizzaOrderUiState{
     return PizzaOrderUiState(

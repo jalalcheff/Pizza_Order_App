@@ -42,14 +42,18 @@ fun PizzaOrderScreen(viewModel: PizzaOrderViewModel = hiltViewModel()){
             Constants.M -> { viewModel.updateSelectedSize(PizzaSize.M) }
             Constants.L -> { viewModel.updateSelectedSize(PizzaSize.L) }
             }},
-        breads = breads
+        breads = breads,
+        onClickIngredient = {
+
+        }
     )
 }
 @Composable
 fun PizzaOrderScreenContent(
     state: PizzaOrderUiState,
     onClick: (String) -> Unit,
-    breads:List<Int>
+    breads:List<Int>,
+    onClickIngredient:(Int) -> Unit
 ){
 Column(
     modifier = Modifier
@@ -77,7 +81,7 @@ Column(
         modifier = Modifier.padding(start = 16.dp)
     )
     VerticalSpacer(space = 16)
-    IngredientRecycler()
+    IngredientRecycler(onClickIngredient)
     VerticalSpacer(space = 56)
     AddToCartButton({} , modifier = Modifier.align(Alignment.CenterHorizontally))
 }
@@ -85,5 +89,5 @@ Column(
 @Composable
 @Preview (widthDp = 360 , heightDp = 800)
 fun PreviewPizzaOrderScreen(){
-    PizzaOrderScreenContent(PizzaOrderUiState(),{}, emptyList())
+    PizzaOrderScreenContent(PizzaOrderUiState(),{}, emptyList(),{})
 }
