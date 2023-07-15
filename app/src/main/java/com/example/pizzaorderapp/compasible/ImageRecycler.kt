@@ -11,12 +11,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.pizzaorderapp.ui.theme.LightGreen
+import com.example.pizzaorderapp.util.IngredientTypes
 
 @Composable
 fun ImageRecycler(
     imageUrl: Int,
-    isSelected: Boolean
+    ingredientTypes: IngredientTypes,
+    ingredientIndex: Int
 ){
+    val selectedIngredient = when(ingredientIndex){
+        0-> ingredientTypes.broccoli
+        1->ingredientTypes.mushroom
+        2->ingredientTypes.onion
+        3->ingredientTypes.sausage
+        4->ingredientTypes.basil
+        else -> ingredientTypes.basil
+    }
     Image(
         painter = painterResource(id = imageUrl),
         contentDescription = "images",
@@ -24,7 +34,7 @@ fun ImageRecycler(
             .size(56.dp)
             .clip(CircleShape)
             .background(
-                color = if (isSelected) LightGreen else Color.White
+                color = if (selectedIngredient) LightGreen else Color.White
             )
     )
 }

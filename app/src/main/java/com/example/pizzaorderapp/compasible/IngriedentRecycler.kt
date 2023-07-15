@@ -7,9 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pizzaorderapp.R
+import com.example.pizzaorderapp.util.IngredientTypes
 
 @Composable
-fun IngredientRecycler(onClickIngredient: (Int)->Unit) {
+fun IngredientRecycler(onClickIngredient: (Int)->Unit, ingredientTypes: IngredientTypes) {
     val selected = true
     val list = listOf(
         R.drawable.ing1,
@@ -22,7 +23,11 @@ fun IngredientRecycler(onClickIngredient: (Int)->Unit) {
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(list) {
-            ImageRecycler(imageUrl = it, isSelected = selected)
+            ImageRecycler(
+                imageUrl = it,
+                ingredientIndex = list.indexOf(it),
+                ingredientTypes = ingredientTypes
+            )
         }
     }
 }
@@ -30,5 +35,5 @@ fun IngredientRecycler(onClickIngredient: (Int)->Unit) {
 @Composable
 @Preview(widthDp = 360, heightDp = 800)
 fun PreviewIngredientRecycler() {
-    IngredientRecycler({})
+    IngredientRecycler({},IngredientTypes(false,false,false,false,false))
 }

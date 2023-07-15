@@ -26,6 +26,7 @@ import com.example.pizzaorderapp.compasible.PizzaTitleText
 import com.example.pizzaorderapp.compasible.SizeSelector
 import com.example.pizzaorderapp.compasible.VerticalSpacer
 import com.example.pizzaorderapp.util.Constants
+import com.example.pizzaorderapp.util.IngredientTypes
 import com.example.pizzaorderapp.util.ListOfBreads
 import com.example.pizzaorderapp.util.PizzaSize
 import com.example.pizzaorderapp.viewModel.PizzaOrderViewModel
@@ -55,6 +56,13 @@ fun PizzaOrderScreenContent(
     breads:List<Int>,
     onClickIngredient:(Int) -> Unit
 ){
+    val ingredientTypes = IngredientTypes(
+        basil = state.basil,
+        mushroom = state.mushroom,
+        onion = state.onion,
+        sausage = state.sausage,
+        broccoli = state.broccoli
+    )
 Column(
     modifier = Modifier
         .fillMaxSize()
@@ -81,7 +89,7 @@ Column(
         modifier = Modifier.padding(start = 16.dp)
     )
     VerticalSpacer(space = 16)
-    IngredientRecycler(onClickIngredient)
+    IngredientRecycler(onClickIngredient,ingredientTypes)
     VerticalSpacer(space = 56)
     AddToCartButton({} , modifier = Modifier.align(Alignment.CenterHorizontally))
 }
