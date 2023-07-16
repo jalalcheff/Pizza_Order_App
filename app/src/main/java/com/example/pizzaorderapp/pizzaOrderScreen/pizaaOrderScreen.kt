@@ -44,9 +44,7 @@ fun PizzaOrderScreen(viewModel: PizzaOrderViewModel = hiltViewModel()){
             Constants.L -> { viewModel.updateSelectedSize(PizzaSize.L) }
             }},
         breads = breads,
-        onClickIngredient = {
-            viewModel.updateIngredient(it)
-        }
+        onClickIngredient = { viewModel.updateIngredient(it) }
     )
 }
 @Composable

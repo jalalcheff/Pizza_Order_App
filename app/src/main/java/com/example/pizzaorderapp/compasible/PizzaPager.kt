@@ -1,5 +1,6 @@
 package com.example.pizzaorderapp.compasible
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -17,11 +18,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pizzaorderapp.R
 import com.example.pizzaorderapp.util.IngredientTypes
-import com.example.pizzaorderapp.util.ListOfBreads
 import com.example.pizzaorderapp.util.ListOfIngredients
 import com.example.pizzaorderapp.util.PizzaSize
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalAnimationApi::class)
 @Composable
 fun PizzaPager(
     breads: List<Int>,
@@ -56,25 +56,12 @@ fun PizzaPager(
                         .fillMaxSize()
                         .clip(CircleShape)
                 ) {
-                    if ( ingredientTypes.basil)
-                        BoxOfIngredients(ingredients = ingredients.basil)
-                    if (ingredientTypes.onion)
-                        BoxOfIngredients(ingredients = ingredients.onion)
-                    if ( ingredientTypes.broccoli)
-                        BoxOfIngredients(ingredients = ingredients.broccoli)
-                    if (ingredientTypes.mushroom)
-                        BoxOfIngredients(ingredients = ingredients.mushroom)
-                    if (ingredientTypes.sausage)
-                        BoxOfIngredients(ingredients = ingredients.sausage)
-                    /*    when(true){
-                            ingredientTypes.basil -> BoxOfIngredients(ingredients = ingredients.basil)
-                            ingredientTypes.onion -> BoxOfIngredients(ingredients = ingredients.onion)
-                            ingredientTypes.broccoli -> BoxOfIngredients(ingredients = ingredients.broccoli)
-                            ingredientTypes.mushroom -> BoxOfIngredients(ingredients = ingredients.mushroom)
-                            ingredientTypes.sausage -> BoxOfIngredients(ingredients = ingredients.sausage)
-                            else -> false
-                        }*/
 
+                        RandomImages(images = ingredients.basil,ingredientTypes.basil)
+                        RandomImages(images = ingredients.onion,ingredientTypes.onion)
+                        RandomImages(images = ingredients.broccoli, ingredientTypes.broccoli)
+                        RandomImages(images = ingredients.mushroom, ingredientTypes.mushroom)
+                        RandomImages(images = ingredients.sausage, ingredientTypes.sausage)
                 }
 
             }
