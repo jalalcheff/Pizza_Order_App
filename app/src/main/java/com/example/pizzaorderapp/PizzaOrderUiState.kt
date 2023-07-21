@@ -4,6 +4,7 @@ import com.example.pizzaorderapp.util.PizzaModel
 import com.example.pizzaorderapp.util.PizzaSize
 
 data class PizzaOrderUiState(
+    val id: Int = 0,
     val isFav: Boolean = false,
     val breadImage: Int = R.drawable.bread_1,
     val pizzaPrice: Int = 70,

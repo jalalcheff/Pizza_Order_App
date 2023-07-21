@@ -10,8 +10,11 @@ import com.example.pizzaorderapp.R
 import com.example.pizzaorderapp.util.IngredientTypes
 
 @Composable
-fun IngredientRecycler(onClickIngredient: (Int)->Unit, ingredientTypes: IngredientTypes) {
-    val selected = true
+fun IngredientRecycler(
+    onClickIngredient: (Int)->Unit,
+    ingredientTypes: IngredientTypes,
+    id: Int
+    ) {
     val list = listOf(
         R.drawable.ing1,
         R.drawable.ing2,
@@ -36,5 +39,5 @@ fun IngredientRecycler(onClickIngredient: (Int)->Unit, ingredientTypes: Ingredie
 @Composable
 @Preview(widthDp = 360, heightDp = 800)
 fun PreviewIngredientRecycler() {
-    IngredientRecycler({},IngredientTypes(false,false,false,false,false))
+    IngredientRecycler({},IngredientTypes(false,false,false,false,false),0)
 }

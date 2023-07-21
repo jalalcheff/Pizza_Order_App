@@ -20,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.pizzaorderapp.PizzaOrderUiState
 import com.example.pizzaorderapp.compasible.AddToCartButton
 import com.example.pizzaorderapp.compasible.AppBar
+import com.example.pizzaorderapp.compasible.HorizontalSpacer
 import com.example.pizzaorderapp.compasible.IngredientRecycler
 import com.example.pizzaorderapp.compasible.PizzaPagerOnThePlate
 import com.example.pizzaorderapp.compasible.PizzaTitleText
@@ -44,7 +45,10 @@ fun PizzaOrderScreen(viewModel: PizzaOrderViewModel = hiltViewModel()){
             Constants.L -> { viewModel.updateSelectedSize(PizzaSize.L) }
             }},
         breads = breads,
-        onClickIngredient = { viewModel.updateIngredient(it) }
+        onClickIngredient = { ingredentIndex, pageIndex ->
+            viewModel.updateIngredient(ingredentIndex, pageIndex)
+                            },
+        onScroll = {viewModel.updateData(it)}
     )
 }
 @Composable
@@ -52,7 +56,8 @@ fun PizzaOrderScreenContent(
     state: PizzaOrderUiState,
     onClick: (String) -> Unit,
     breads:List<Int>,
-    onClickIngredient:(Int) -> Unit
+    onClickIngredient:(Int,Int) -> Unit,
+    onScroll:(Int)->Unit
 ){
     val ingredientTypes = IngredientTypes(
         basil = state.basil,
@@ -69,16 +74,18 @@ Column(
     VerticalSpacer(space = 24)
     AppBar()
     VerticalSpacer(space = 24)
-    PizzaPagerOnThePlate(breads, state.pizzaSize, ingredientTypes)
+    PizzaPagerOnThePlate(breads, state.pizzaSize, ingredientTypes, onScroll)
     VerticalSpacer(space = 24)
-    PizzaTitleText(text = "$70", Modifier.fillMaxWidth())
+    PizzaTitleText(text = "$${state.pizzaPrice}", Modifier.fillMaxWidth())
     VerticalSpacer(space = 24)
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceEvenly
+        horizontalArrangement = Arrangement.Center
     ) {
         SizeSelector(Constants.S, (state.pizzaSize == PizzaSize.S), onClick)
+        HorizontalSpacer(space = 16)
         SizeSelector(Constants.M, (state.pizzaSize == PizzaSize.M), onClick)
+        HorizontalSpacer(space = 16)
         SizeSelector(Constants.L, (state.pizzaSize == PizzaSize.L), onClick)
     }
     VerticalSpacer(space = 24)
@@ -87,7 +94,7 @@ Column(
         modifier = Modifier.padding(start = 16.dp)
     )
     VerticalSpacer(space = 16)
-    IngredientRecycler(onClickIngredient,ingredientTypes)
+    IngredientRecycler({ onClickIngredient(it, state.id) }, ingredientTypes, state.id)
     VerticalSpacer(space = 56)
     AddToCartButton({} , modifier = Modifier.align(Alignment.CenterHorizontally))
 }
@@ -95,5 +102,4 @@ Column(
 @Composable
 @Preview (widthDp = 360 , heightDp = 800)
 fun PreviewPizzaOrderScreen(){
-    PizzaOrderScreenContent(PizzaOrderUiState(),{}, emptyList(),{})
 }

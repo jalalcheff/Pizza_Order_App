@@ -11,11 +11,12 @@ import com.example.pizzaorderapp.util.PizzaSize
 fun PizzaPagerOnThePlate(
     imageResource: List<Int>,
     pizzaSize: PizzaSize,
-    ingredientTypes: IngredientTypes
+    ingredientTypes: IngredientTypes,
+    onScroll:(Int)->Unit
     ){
     Box(contentAlignment = Alignment.Center) {
         PizzaPlate()
-        PizzaPager(imageResource, pizzaSize, ingredientTypes)
+        PizzaPager(imageResource, pizzaSize, ingredientTypes, onScroll)
     }
 }
 
